@@ -12,7 +12,16 @@ A personal finance dashboard built with Flask, SQLite, HTML, CSS and JavaScript.
 - **Data persistence:** Store transaction and budget data in an SQLite database.
 - **Input validation:** Validate transaction details before saving them.
 - **Automated testing:** Test application routes and transaction functionality using Python's `unittest` framework.
+## Screenshots
 
+### Finance Dashboard
+![Finance dashboard](screenshots/dashboard.png)
+
+### Recent Transactions
+![Transaction management](screenshots/transactions.png)
+
+### Spending Breakdown and Monthly Budgets
+![Spending chart and monthly budgets](screenshots/budgets.png)
 ## Technology Stack
 
 - **Backend:** Python, Flask
