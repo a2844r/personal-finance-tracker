@@ -1,60 +1,68 @@
-
 # Personal Finance Tracker
 
-A personal finance web application built with Python and Flask to help users track income and expenses, manage monthly budgets, and understand their spending habits.
+A personal finance dashboard built with Flask, SQLite, HTML, CSS and JavaScript. The application helps users record transactions, monitor their balance, visualise spending and manage monthly budgets.
 
 ## Features
 
-- **Dashboard:** View income, expenses, and remaining balance.
-- **Transaction management:** Add, edit, and delete transactions.
-- **Spending breakdown:** Visualise expenses by category using Chart.js.
-- **Monthly budgets:** Set category-based budgets and monitor spending progress.
+- **Transaction management:** Add, edit and delete income and expense records.
+- **Financial summaries:** View total income, expenses and remaining balance.
+- **Spending visualisation:** Explore expense categories using a doughnut chart.
+- **Monthly budgets:** Set category-specific budgets and track spending against limits.
 - **Category filtering:** Filter transactions by category.
-- **Data persistence:** Store transactions and budgets in SQLite.
-- **Input validation:** Reject invalid transaction types and non-positive amounts.
-- **Automated testing:** Test application routes, transaction operations, and input validation.
+- **Data persistence:** Store transaction and budget data in an SQLite database.
+- **Input validation:** Validate transaction details before saving them.
+- **Automated testing:** Test application routes and transaction functionality using Python's `unittest` framework.
 
-## Tech Stack
+## Technology Stack
 
 - **Backend:** Python, Flask
 - **Database:** SQLite
 - **Frontend:** HTML, CSS, JavaScript
 - **Visualisation:** Chart.js
-- **Testing:** Python `unittest`, Flask test client
+- **Testing:** Python `unittest`
+- **Version control:** Git and GitHub
 
 ## Getting Started
 
-### 1. Clone the repository
+### Prerequisites
 
-```bash
-git clone YOUR_REPOSITORY_URL
-cd personal-finance-tracker
-```
+- Python 3
+- Git
 
-Replace `YOUR_REPOSITORY_URL` with your GitHub repository URL.
+### Installation
 
-### 2. Create a virtual environment
+1. Clone the repository:
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+   ```bash
+   git clone https://github.com/a2844r/personal-finance-tracker.git
+   cd personal-finance-tracker
+   ```
 
-### 3. Install dependencies
+2. Create and activate a virtual environment:
 
-```bash
-pip install Flask
-```
+   **macOS/Linux**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 
-### 4. Run the application
+3. Install dependencies:
 
-```bash
-python3 app.py
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Open http://127.0.0.1:5000 in your browser.
+4. Start the application:
 
-## Running Tests
+   ```bash
+   python3 app.py
+   ```
+
+5. Open `http://127.0.0.1:5000` in your browser.
+
+The SQLite database is initialised by the application when needed.
+
+## Running the Tests
 
 Run the automated test suite with:
 
@@ -62,9 +70,7 @@ Run the automated test suite with:
 python3 -m unittest test_app -v
 ```
 
-The test suite currently contains eight tests covering application routes, transaction creation, updating and deletion, and invalid input handling.
-
-Tests use a temporary database to keep test data separate from the main finance database.
+The tests cover application endpoints and transaction operations.
 
 ## Project Structure
 
@@ -72,29 +78,22 @@ Tests use a temporary database to keep test data separate from the main finance 
 personal-finance-tracker/
 ├── app.py
 ├── test_app.py
+├── requirements.txt
 ├── README.md
+├── .gitignore
 ├── templates/
 │   └── index.html
 └── static/
-    ├── style.css
-    └── script.js
+    ├── script.js
+    └── style.css
 ```
-
-## Learning Outcomes
-
-This project demonstrates practical experience with:
-
-- Building web applications using Flask.
-- Designing database-backed CRUD operations.
-- Using SQLite and parameterised SQL queries.
-- Validating user input.
-- Writing automated tests.
-- Creating responsive interfaces with JavaScript and CSS.
 
 ## Future Improvements
 
-- Add user authentication and individual accounts.
-- Introduce recurring transactions.
-- Add CSV export for financial records.
-- Improve transaction editing with a dedicated form.
-- Expand test coverage for budget operations and additional invalid inputs.
+- Replace browser prompts with a dedicated transaction-editing modal.
+- Add date-range filtering and monthly financial reports.
+- Improve automated test coverage for budget validation and error handling.
+
+## Disclaimer
+
+This project is intended for personal learning and demonstration. Use fictional data when showcasing the application publicly.
