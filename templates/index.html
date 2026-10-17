@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Finance Dashboard</h1>
+            <p>Track your money. Understand your spending. Plan ahead.</p>
+        </header>
+
+        <section class="summary">
+            <div class="card income">
+                <p>Total Income</p>
+                <h2>£0.00</h2>
+            </div>
+
+            <div class="card expenses">
+                <p>Total Expenses</p>
+                <h2>£0.00</h2>
+            </div>
+
+            <div class="card balance">
+                <p>Remaining Balance</p>
+                <h2>£0.00</h2>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Add a Transaction</h2>
+
+            <form id="transaction-form">
+                <select id="type" required>
+                    <option value="">Choose transaction type</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Amount (£)"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+                <select id="category" required>
+                    <option value="">Choose category</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Education">Education</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <input
+                    type="date"
+                    id="date"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="description"
+                    placeholder="Description (optional)"
+                >
+
+                <button type="submit">Add Transaction</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            
+<section class="dashboard-card">
+    <h2>Spending Breakdown</h2>
+    <p>Your expenses by category</p>
+    <div style="max-width: 450px; margin: 0 auto;">
+        <canvas id="spending-chart"></canvas>
+    </div>
+</section>
+
+<section class="dashboard-card">
+    <h2>Monthly Budgets</h2>
+    <p>Set a spending limit for each category.</p>
+
+    <form id="budget-form" class="budget-form">
+        <div>
+            <label for="budget-category">Category</label>
+            <select id="budget-category" required>
+                <option value="Shopping">Shopping</option>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Bills">Bills</option>
+                <option value="Education">Education</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="budget-amount">Monthly limit (£)</label>
+            <input
+                type="number"
+                id="budget-amount"
+                min="0.01"
+                step="0.01"
+                placeholder="e.g. 200"
+                required
+            >
+        </div>
+
+        <button type="submit">Save Budget</button>
+    </form>
+
+    <div id="budget-list"></div>
+</section>
+
+
+<h2>Recent Transactions</h2>
+
+<select id="category-filter">
+    <option value="all">All Categories</option>
+    <option value="Salary">Salary</option>
+    <option value="Shopping">Shopping</option>
+    <option value="Food">Food</option>
+    <option value="Transport">Transport</option>
+    <option value="Bills">Bills</option>
+    <option value="Education">Education</option>
+    <option value="Other">Other</option>
+</select>
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-list">
+                    <tr>
+                        <td colspan="5">No transactions yet. Add your first one above!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

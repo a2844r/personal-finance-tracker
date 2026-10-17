@@ -1,0 +1,19 @@
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# Personal financial data
+finance.db
+finance.db-journal
+finance.db-shm
+finance.db-wal
+
+# Environment secrets
+.env
+
+# macOS
+.DS_Store

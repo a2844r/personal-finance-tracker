@@ -1,0 +1,258 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #f6f7fb;
+    --surface: #ffffff;
+    --text: #22243a;
+    --muted: #777b91;
+    --primary: #6658d9;
+    --primary-hover: #5144bf;
+    --green: #20966b;
+    --red: #d95768;
+    --border: #e9eaf2;
+    --shadow: 0 8px 30px rgba(35, 37, 72, 0.055);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    background: var(--background);
+    color: var(--text);
+    padding: 42px 24px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 34px;
+}
+
+header h1 {
+    font-size: clamp(27px, 4vw, 36px);
+    font-weight: 750;
+    letter-spacing: -1.2px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 28px;
+}
+
+.card {
+    background: var(--surface);
+    padding: 27px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(35, 37, 72, 0.09);
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 13px;
+}
+
+.card h2 {
+    font-size: clamp(23px, 3vw, 31px);
+    letter-spacing: -0.7px;
+    overflow-wrap: anywhere;
+}
+
+.income {
+    border-top: 4px solid var(--green);
+}
+
+.expenses {
+    border-top: 4px solid var(--red);
+}
+
+.balance {
+    border-top: 4px solid var(--primary);
+}
+
+.panel {
+    background: var(--surface);
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    margin-bottom: 26px;
+}
+
+.panel h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    margin-bottom: 23px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 15px;
+    border: 1px solid #dedfeb;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 14px;
+}
+
+input,
+select {
+    background: #fff;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(102, 88, 217, 0.12);
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 650;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+#category-filter {
+    max-width: 240px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 16px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eff0f5;
+}
+
+th {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 650;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #fafaff;
+}
+
+td button {
+    width: auto;
+    padding: 8px 12px;
+    background: #fff0f2;
+    color: var(--red);
+    font-size: 12px;
+}
+
+td button:hover {
+    background: #ffdde2;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+    outline: 3px solid rgba(102, 88, 217, 0.35);
+    outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 25px 14px;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .panel {
+        padding: 20px 15px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    #category-filter {
+        max-width: 100%;
+    }
+
+    .panel {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
